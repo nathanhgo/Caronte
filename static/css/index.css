@@ -19,10 +19,31 @@ body {
     margin: auto;
 }
 
+@keyframes mudar_cor_header {
+    from {
+        background-color: transparent;
+        border-bottom: 1px solid var(--white);
+    }
+    to {
+        background-color: var(--blue);
+        border: none;
+    }
+}
+
 header {
-    background-color: var(--blue);
+    background-color: transparent;
+    border-bottom: 1px solid var(--white);
     color: var(--white);
     height: 4em;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    animation: mudar_cor_header linear forwards;
+    animation-timeline: scroll(root);
+    animation-range-start: 0px;
+    animation-range-end: 1px;
 
     .container {
         display: flex;
@@ -64,11 +85,12 @@ main {
     background-image: url('../img/bg.png');
     background-position: center;
     background-repeat: no-repeat;
-    backface-visibility: 30%;
+    margin-top: -4em;
+    padding-top: 4em;
 
     color: var(--white);
 
-    height: calc(100vh - 14em);
+    height: 90vh;
 
     .container {
         display: flex;
@@ -126,6 +148,26 @@ main {
 
 }
 
+.quemSomos {
+    margin: 5em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h3 {
+        font-size: 32px;
+        text-align: center;
+    }
+
+    p {
+        font-size: 1.5em;
+        text-align: justify;
+        margin-top: 2em;
+    }
+}
+
 footer {
     background-color: var(--blue);
     color: var(--white);
@@ -163,6 +205,16 @@ footer {
     
 }
 
-@media screen and (min-width: 990px) {
+@media (min-width: 700px) {
+    .container {
+        width: 70%;
+    }
 
+    main .container .main_menu .btn_homepage {
+        width: 15em;
+
+        &:hover {
+            width: 20em;
+        }
+    }
 }
