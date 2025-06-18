@@ -1,0 +1,85 @@
+main {
+    background-image: url('../img/bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width: 100%;
+    color: white;
+    padding-top: 5rem;
+}
+
+main h1 {
+    font-size: 4em;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.main_menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#menuBtn1, #menuBtn2, #menuBtn3, #menuBtn4 {
+    margin: 0.5rem;
+    background-color: var(--blue);
+    border: 1px solid var(--blue);
+    width: 20rem;
+}
+
+#menuBtn:hover {
+    background-color: var(--blue2);
+    border: 1px solid var(--blue2);
+}
+
+main img {
+    position: relative;
+    top: 45px;
+    width: 25em;
+}
+
+main .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.nossosArtigos {
+    padding: 5rem;
+}
+
+.nossosArtigos h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 2rem;
+}
+
+#acordionBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#acordionBody .card {
+    margin-bottom: 1rem;
+}
+
+.container {
+    height: 100%;
+}
+
+@media (min-width: 768px) {
+    #acordionBody {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #acordionBody .card {
+        margin: 0px 1rem;
+    }
+}

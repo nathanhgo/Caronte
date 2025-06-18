@@ -1,12 +1,201 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./static/css/base.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <script src="./static/js/index.js" defer></script>
+    <title>Caronte - Home</title>
 </head>
 <body>
-    <h1>Hello World!</h1>
-    <p>aaaa</p>
+    <header>
+        <div class="container" style="height: 100%;">
+            <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">&lt;Caronte&gt;</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Conteúdos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="perfil.html">Meu Perfil</a>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+        </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>O que vamos aprender hoje?</h1>
+            <div class="main_menu">
+                <a class="btn btn-primary" id="menuBtn1" href="#nossosArtigos">Cálculo</a>
+                <a class="btn btn-primary" id="menuBtn2" href="#nossosArtigos">Estrutura de Dados</a>
+                <a class="btn btn-primary" id="menuBtn3" href="#nossosArtigos">Arq. de Computadores</a>
+                <a class="btn btn-primary" id="menuBtn4" href="#nossosArtigos">Prog. Orientada a Objetos</a>
+            </div>
+            <img src="../static/img/robot.png" alt="Robô" class="robo">
+        </div>
+    </main>
+
+    <section class="nossosArtigos" id="nossosArtigos">
+        <div class="container">
+            <h2>Nossos Artigos</h2>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                    <button class="accordion-button" id="accordionButton1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Cálulo
+                    </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body" id="acordionBody">
+
+                            <div class="card" style="width: 18rem;">
+                                <img src="./static/img/bg.png" class="card-img-top" alt="Imagem de um artigo">
+                                <div class="card-body">
+                                    <h5 class="card-title">Introdução</h5>
+                                    <p class="card-text">O cálculo é uma área da matemática que estuda as mudanças e as acumulações.</p>
+                                    <a href="calculo.html" class="btn btn-primary">Saiba Mais!</a>
+                                </div>                              
+                            </div>
+
+
+                            <div class="card" style="width: 18rem;">
+                                <img src="./static/img/bg.png" class="card-img-top" alt="Imagem de um artigo">
+                                <div class="card-body">
+                                    <h5 class="card-title">Artigo 2</h5>
+                                    <p class="card-text">Desrição do Artigo 2. Uma descrição curta mais ou menos desse tamanho.</p>
+                                    <a href="#" class="btn btn-primary">Saiba Mais!</a>
+                                </div>                              
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                    <button class="accordion-button" id="accordionButton2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+                        Estrutura de Dados
+                    </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body" id="acordionBody">
+
+                            <div class="card" style="width: 18rem;">
+                                <img src="./static/img/bg.png" class="card-img-top" alt="Imagem de um artigo">
+                                <div class="card-body">
+                                    <h5 class="card-title">Artigo 1</h5>
+                                    <p class="card-text">Desrição do Artigo 1. Uma descrição curta mais ou menos desse tamanho.</p>
+                                    <a href="#" class="btn btn-primary">Saiba Mais!</a>
+                                </div>                              
+                            </div>
+
+
+                            <div class="card" style="width: 18rem;">
+                                <img src="./static/img/bg.png" class="card-img-top" alt="Imagem de um artigo">
+                                <div class="card-body">
+                                    <h5 class="card-title">Artigo 2</h5>
+                                    <p class="card-text">Desrição do Artigo 2. Uma descrição curta mais ou menos desse tamanho.</p>
+                                    <a href="#" class="btn btn-primary">Saiba Mais!</a>
+                                </div>                              
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                    <button class="accordion-button" id="accordionButton3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
+                        Arquitetura de Computadores
+                    </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body" id="acordionBody">
+
+                            <div class="card" style="width: 18rem;">
+                                <img src="./static/img/bg.png" class="card-img-top" alt="Imagem de um artigo">
+                                <div class="card-body">
+                                    <h5 class="card-title">Artigo 1</h5>
+                                    <p class="card-text">Desrição do Artigo 1. Uma descrição curta mais ou menos desse tamanho.</p>
+                                    <a href="#" class="btn btn-primary">Saiba Mais!</a>
+                                </div>                              
+                            </div>
+
+
+                            <div class="card" style="width: 18rem;">
+                                <img src="./static/img/bg.png" class="card-img-top" alt="Imagem de um artigo">
+                                <div class="card-body">
+                                    <h5 class="card-title">Artigo 2</h5>
+                                    <p class="card-text">Desrição do Artigo 2. Uma descrição curta mais ou menos desse tamanho.</p>
+                                    <a href="#" class="btn btn-primary">Saiba Mais!</a>
+                                </div>                              
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                    <button class="accordion-button" id="accordionButton4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseOne">
+                        Programação Orientada a Objetos
+                    </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body" id="acordionBody">
+
+                            <div class="card" style="width: 18rem;">
+                                <img src="./static/img/bg.png" class="card-img-top" alt="Imagem de um artigo">
+                                <div class="card-body">
+                                    <h5 class="card-title">Artigo 1</h5>
+                                    <p class="card-text">Desrição do Artigo 1. Uma descrição curta mais ou menos desse tamanho.</p>
+                                    <a href="#" class="btn btn-primary">Saiba Mais!</a>
+                                </div>                              
+                            </div>
+
+
+                            <div class="card" style="width: 18rem;">
+                                <img src="./static/img/bg.png" class="card-img-top" alt="Imagem de um artigo">
+                                <div class="card-body">
+                                    <h5 class="card-title">Artigo 2</h5>
+                                    <p class="card-text">Desrição do Artigo 2. Uma descrição curta mais ou menos desse tamanho.</p>
+                                    <a href="#" class="btn btn-primary">Saiba Mais!</a>
+                                </div>                              
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>
+                <a href="https://github.com/nathanhgo" target="_blank">@nathanhgo</a>
+                <a href="https://github.com/iamthewalrusz" target="_blank">@iamthewalrus</a>
+                <a href="https://github.com/comeraperuibe944" target="_blank">@comeraperuibe994</a>
+                <a href="https://github.com/PichuFV" target="_blank">@PichuFV</a>
+            </p>
+            <h3>&lt;/caronte&gt;</h3>
+        </div>
+    </footer>
 </body>
 </html>

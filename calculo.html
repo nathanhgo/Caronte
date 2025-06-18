@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caronte - Cálculo</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./static/css/base.css">
+
+    <style>
+        :root {
+        --cor-fundo: #f3f6fb;
+        --cor-container: #fdf6ee;
+        --cor-h1: #1353a4;
+        --cor-h2: #15548c;
+        --cor-curiosidade: #eaf3fc;
+        --cor-borda-curiosidade: #1353a4;
+        --fonte: 'Segoe UI';
+        }
+
+        main {
+        background: var(--cor-fundo);
+        font-family: var(--fonte);
+        margin: 0;
+        padding: 0;
+        }
+
+        main .container {
+            background: var(--cor-container);
+            max-width: 720px;
+            margin: 40px auto;
+            padding: 2em;
+            border-radius: 14px;
+            box-shadow: 0 4px 18px #0002;
+            color: black;
+            font-family: var(--fonte);
+        }
+
+        main h1 {
+            color: var(--cor-h1);
+            border-bottom: 2px solid var(--cor-h1);
+            margin-bottom: 1em;
+            font-size: 2em;
+            font-weight: bold;
+            margin-top: 0;
+        }
+
+        main h2 {
+            color: var(--cor-h2);
+            margin-top: 2em;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        main p {
+            margin-bottom: 1em;
+            line-height: 1.6;
+        }
+
+        main ul {
+            padding-left: 1.5em;
+            margin-bottom: 1em;
+        }
+
+        main li {
+            margin-bottom: 0.5em;
+            line-height: 1.7;
+        }
+
+        main .topic {
+            margin-bottom: 0.6em;
+        }
+
+        main .curiosidades {
+            background: var(--cor-curiosidade);
+            border-left: 5px solid var(--cor-borda-curiosidade);
+            padding: 1em;
+            margin: 2em 0 1.5em 0;
+            border-radius: 10px;
+        }
+
+        main .curiosidades h2 {
+            color: #1b4967;
+            margin-top: 0;
+        }
+
+        @media (max-width: 620px) {
+            main .container {
+                padding: 1em;
+            }
+
+            main h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container" style="height: 100%;">
+            <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html">&lt;Caronte&gt;</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Conteúdos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Meu Perfil</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pagina-calculo">
+        <div class="container">
+            <h1>Introdução ao Cálculo</h1>
+            <p>
+            O cálculo é uma área da matemática que estuda as mudanças e as acumulações. Com ele, conseguimos entender como as coisas variam — como a velocidade de um carro muda, como uma população cresce, ou como calcular a área sob uma curva.
+            </p>
+            <p>
+            O cálculo foi desenvolvido por Isaac Newton (1643-1727) e Gottfried Wilhelm Leibniz (1646-1716) no final do século XVII. Desde então, tornou-se fundamental para o avanço da ciência, tecnologia e engenharia.
+            </p>
+
+            <h2>Os dois ramos principais</h2>
+            <div class="topics-list">
+            <div class="topic">
+                <strong>Cálculo Diferencial:</strong> Foca nas taxas de variação, ou seja, em como algo muda de um instante para o outro. O principal conceito aqui é a derivada.
+            </div>
+            <div class="topic">
+                <strong>Cálculo Integral:</strong> Trata da soma de pequenas partes para formar um todo, como calcular áreas, volumes ou totais acumulados. O conceito central é a integral.
+            </div>
+            </div>
+
+            <h2>Por que aprender cálculo?</h2>
+            <ul>
+            <li><strong>Física:</strong> movimento, energia, eletricidade, ondas.</li>
+            <li><strong>Engenharia:</strong> projetos, circuitos, análise de sistemas.</li>
+            <li><strong>Economia:</strong> otimização de lucros e custos.</li>
+            <li><strong>Biologia:</strong> crescimento populacional, taxas de reação.</li>
+            <li><strong>Computação Gráfica:</strong> animações e simulações.</li>
+            <li><strong>Inteligência Artificial:</strong> aprendizado de máquina e redes neurais.</li>
+            <li><strong>Geografia:</strong> modelagem de relevo, dinâmica de rios.</li>
+            <li><strong>Psicologia:</strong> variação de respostas, processamento de dados de exames.</li>
+            </ul>
+
+            <div class="curiosidades">
+            <h2>Curiosidades sobre Cálculo</h2>
+            <ul>
+                <li>
+                <strong>Cálculo foi inventado duas vezes:</strong> O cálculo foi desenvolvido de forma independente por Isaac Newton e Gottfried Wilhelm Leibniz, cada um sem saber do trabalho do outro. Isso gerou uma das maiores disputas da história da matemática sobre quem teria sido o verdadeiro inventor.
+                </li>
+                <li>
+                <strong>O símbolo ∫ foi criado por Leibniz:</strong> O famoso símbolo de integral (∫) foi introduzido por Leibniz. Ele se inspirou na letra “s” alongada da palavra “summa”, que significa “soma” em latim.
+                </li>
+                <li>
+                <strong>O caminho mais rápido:</strong> O problema da braquistócrona, resolvido com cálculo, mostra que o caminho mais rápido entre dois pontos sob a ação da gravidade não é uma linha reta, mas sim uma curva chamada cicloide.
+                </li>
+                <li>
+                <strong>Taxas de variação estão por toda parte:</strong> O velocímetro do carro mostra a derivada da posição em relação ao tempo, ou seja, a velocidade instantânea.
+                </li>
+            </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                <a href="https://github.com/nathanhgo" target="_blank">@nathanhgo</a>
+                <a href="https://github.com/iamthewalrusz" target="_blank">@iamthewalrus</a>
+                <a href="https://github.com/comeraperuibe944" target="_blank">@comeraperuibe994</a>
+                <a href="https://github.com/PichuFV" target="_blank">@PichuFV</a>
+            </p>
+            <h3>&lt;/caronte&gt;</h3>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
