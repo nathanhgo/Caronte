@@ -2,7 +2,7 @@
 
 function mostrarNome(nome_usuario) {
     let nome = document.querySelector("#nome")
-    nome.innerHTML = `<h1 id="nome">Nome:${nome_usuario}</h1>`
+    nome.innerHTML = `<h1 id="nome">@${nome_usuario}</h1>`
 }
 mostrarNome(JSON.parse(localStorage["user_logado"]).nome)
 
@@ -71,8 +71,8 @@ const mostrarStacks = () => {
     if (listaCategorias.length > 0) {
            for (const ct of listaCategorias) {
             flashcardList.innerHTML += `
-                <li class="flashcardStack">${ct}
-                <button class="btn btn-primary btnAbrir">Abrir pilha</button>
+                <li class="flashcardStack">${ct.toLowerCase()}
+                <button class="btn btn-primary btnAbrir" onclick="abrirStack('${ct}', 0)" data-bs-toggle="modal" data-bs-target="#modalVerFlashcard">Abrir pilha</button>
                 <button class="btn btn-danger btnExcluir" onclick="excluirStack('${ct}')">Exluir pilha</button>
                 </li>
             `
@@ -87,7 +87,6 @@ const mostrarStacks = () => {
 
 }
 
-mostrarStacks()
 
 const excluirStack = (stack) => {
     const userLogado = JSON.parse(localStorage.getItem('user_logado'));
@@ -107,29 +106,57 @@ const excluirStack = (stack) => {
     mostrarStacks()
 }
 
+const atualizarModalCriar = () => {
+    const selectCategory = document.querySelector('.selectCategory')
+    const corpoModalCriar = document.querySelector('#corpoModalCriar')
 
-const selectCategory = document.querySelector('.selectCategory')
-const corpoModalCriar = document.querySelector('#corpoModalCriar')
+    let flashcards = JSON.parse(localStorage.getItem('user_logado')).flashcards
+    let listaCategorias = []
 
-let flashcards = JSON.parse(localStorage.getItem('user_logado')).flashcards
-let listaCategorias = []
+    selectCategory.innerHTML = ''
 
-for (const fc of flashcards) {
-    if (listaCategorias.indexOf(fc.categoria) == -1) {
-        listaCategorias.push(fc.categoria)
+    for (const fc of flashcards) {
+        if (listaCategorias.indexOf(fc.categoria) == -1) {
+            listaCategorias.push(fc.categoria)
+        }
     }
+
+    for (const ct of listaCategorias) {
+        selectCategory.innerHTML += `<option value="${ct}">${ct.toLowerCase()}</option>`
+    }
+
+    selectCategory.innerHTML += `<option id='optNovapilha' value="novaPilha">Nova Pilha</option>`
 }
 
-for (const ct of listaCategorias) {
-    selectCategory.innerHTML += `<option value="${ct}">${ct}</option>`
-}
 
-const btnCriarFlashcard = document.querySelector('#btnCriar')
+selectCategory.addEventListener('change', () => {
+    const divCriarPilha = document.querySelector('#divCriarPilha')
+    const criarCategoria = document.querySelector('#criarCategoria')
 
-btnCriarFlashcard.addEventListener('click', () => {
+    if (selectCategory.value === 'novaPilha') {
+        criarCategoria.value = '1'
+
+        divCriarPilha.innerHTML += `
+            <div class="input-group mb-3" id="inputGroupCriarPilha">
+                    <span class="input-group-text" id="basic-addon1">📃</span>
+                    <input type="textarea" id="novaCategoria" class="form-control" placeholder="Nome da Pilha" aria-label="frenteFlashcard" aria-describedby="basic-addon1" required>
+            </div>
+        `
+    } else {
+        const inputGroupCriarPilha = document.querySelector('#inputGroupCriarPilha')
+        divCriarPilha.removeChild(inputGroupCriarPilha)
+
+        criarCategoria.value = '0'
+    }
+})
+
+
+const btnCriar = document.querySelector('#btnCriar')
+btnCriar.addEventListener('click', () => {
     const frenteFlashcard = document.querySelector('#frenteFlashcard')
     const fundoFlashcard  = document.querySelector('#fundoFlashcard')
     const selectCategory = document.querySelector('#selectCategory')
+    const criarCategoria = document.querySelector('#criarCategoria')
 
     if (frenteFlashcard.value == '' || fundoFlashcard.value == '') {
         corpoModalCriar.innerHTML += `
@@ -138,14 +165,70 @@ btnCriarFlashcard.addEventListener('click', () => {
             </div>
         `
     } else {
+        let cat = ''
+        if (criarCategoria.value == '1') {
+            const novaCategoria = document.querySelector('#novaCategoria')
+            cat = novaCategoria.value
+
+        } else {
+            cat = selectCategory.value
+        }
+
+
         const userLogado = JSON.parse(localStorage.getItem('user_logado'));
         userLogado.flashcards.push({
             pergunta: `${frenteFlashcard.value}`,
             resposta: `${fundoFlashcard.value}`,
-            categoria: `${String(selectCategory.value).toUpperCase()}`
+            categoria: `${String(cat).toUpperCase()}`
         })
 
         const usuarioAtualizadoString = JSON.stringify(userLogado);
         localStorage.setItem('user_logado', usuarioAtualizadoString);
     }
+
+    frenteFlashcard.value = ''
+    fundoFlashcard.value = ''
+    atualizarModalCriar()
+    mostrarStacks()
 })
+
+
+btnCriarFlashcard = document.querySelector("#btnCriarFlashcard")
+btnCriarFlashcard.addEventListener('click', () => {
+    atualizarModalCriar()
+})
+
+const abrirStack = (stack, count) => {
+    const userLogado = JSON.parse(localStorage.getItem('user_logado'));
+    const todosFlashcards = userLogado.flashcards
+    const flashcardsStack = []
+
+    for (const fc of todosFlashcards) {
+        if (fc.categoria == stack) {
+            flashcardsStack.push(fc)
+        }
+    }
+
+    if (flashcardsStack[count] == undefined){
+        count = 0
+    }
+
+    document.querySelector('#modalVerLabel').innerText = `${stack.toLowerCase()}`
+
+    const corpoModalVer = document.querySelector('#corpoModalVer')
+    corpoModalVer.innerHTML = `
+        <h3>Frente do cartão</h3>
+        <p>${flashcardsStack[count].pergunta}</p>
+        <button class="btn btn-primary" onclick="mostrarResposta('${flashcardsStack[count].resposta}', ${count}, '${stack}')">Ver Resposta</button>
+    `
+}
+
+const mostrarResposta = (resposta, count, stack) => {
+    count += 1
+    corpoModalVer.innerHTML = `
+        <h3>Frente do cartão</h3>
+        <p>${resposta}</p>
+        <button class="btn btn-primary" onclick="abrirStack('${stack}', ${count})">Próximo</button>
+    `
+}
+mostrarStacks()

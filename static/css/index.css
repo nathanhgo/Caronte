@@ -2,6 +2,7 @@ main {
     background-image: url('../img/bg.png');
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 
     width: 100%;
     color: white;

@@ -1,3 +1,53 @@
+.btn-primary {
+    background-color: var(--blue);
+    border: 1px solid var(--blue);
+}
+
+.btn-primary:hover {
+    background-color: var(--blue2);
+    border: 1px solid var(--blue2);
+}
+
+
+
+main {
+    background-image: url('../img/bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+    min-height: 50vh;
+    color: var(--white);
+}
+
+main .container{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main .container > * {
+    margin: 1rem 0px;
+}
+
+#nomeNovo {
+    max-width: 300px;
+}
+
+
+section {
+    padding: 2rem 0px;
+    min-height: 30.8vh;
+}
+
+#suasPilhas {
+    text-align: center;
+    font-size: 32px;
+}
+
 .flashcardList {
     list-style: none;
     padding: 0px;
@@ -19,11 +69,6 @@
     margin-left: 0.5rem;
 }
 
-#suasPilhas {
-    text-align: center;
-    font-size: 32px;
-}
-
 .alert {
     text-align: center;
 }
@@ -35,6 +80,39 @@
     justify-content: center;
 }
 
+.flashcardStack {
+    text-transform: capitalize;
+    font-weight: 700;
+}
+
+
+
 .formCriarFlashcard button {
     margin: 1rem 0px;
+}
+
+option, select {
+    text-transform: capitalize;
+}
+
+#inputGroupCriarPilha {
+    margin-top: 1rem;
+    width: 100%;
+}
+
+#divCriarPilha {
+    width: 100%;
+}
+
+
+
+#modalVerLabel {
+    text-transform: capitalize;
+}
+
+#corpoModalVer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

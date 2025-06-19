@@ -39,51 +39,20 @@
 
     <main>
         <div class="container">
-            <h1 id="nome">Nome:</h1>
+            <h1 id="nome">@</h1>
             <input id="nomeNovo" type="text" class="form-control" placeholder="Novo nome de usuário" aria-label="Username" aria-describedby="basic-addon1">
-            <button id="btnEditarNome" class="btn btn-primary" type="submit">Editar o nome</button>
-            <button id="btnExcluir" class="btn btn-primary" type="submit">Excluir perfil</button>
-        </div>
+            <div class="gerenciarNome">
+                <button id="btnEditarNome" class="btn btn-primary" type="submit">Editar o nome</button>
+                <button id="btnExcluir" class="btn btn-danger" type="submit">Excluir perfil</button>
+            </div>
 
-        <!-- Botão Criar Flashcard-->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCriarFlashcard">
-        Criar Flashcard
-        </button>
-
-        <!-- Modal Criar Flashcard -->
-        <div class="modal fade" id="modalCriarFlashcard" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Criar novo flashcard</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body" id="corpoModalCriar">
-                        <form class="formCriarFlashcard">
-
-                            <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1">📃</span>
-                                <input type="textarea" id="frenteFlashcard" class="form-control" placeholder="Frente do flashcard" aria-label="frenteFlashcard" aria-describedby="basic-addon1" required>
-                            </div>
-
-                            <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1">📃</span>
-                                <input type="textarea" id="fundoFlashcard" class="form-control" placeholder="Fundo do flashcard" aria-label="fundoFlashcard" aria-describedby="basic-addon1" required>
-                            </div>
-
-                            <select class="form-select selectCategory" id="selectCategory"></select>
-
-                            <button class="btn btn-primary" id="btnCriar" type="button">Criar</button>
-                        </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-
-                </div>
-                </div>
+            <div>
+                <!-- Botão Criar Flashcard-->
+                <button type="button" id="btnCriarFlashcard" class="btn btn-success data-bs-toggle="modal" data-bs-target="#modalCriarFlashcard">
+                Criar Flashcard
+                </button>
             </div>
         </div>
-
     </main>
 
     <section>
@@ -106,5 +75,64 @@
             <h3>&lt;/caronte&gt;</h3>
         </div>
     </footer>
+
+
+    <!-- Modal Criar Flashcard -->
+    <div class="modal fade" id="modalCriarFlashcard" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Criar novo flashcard</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="corpoModalCriar">
+                    <form class="formCriarFlashcard">
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">📃</span>
+                            <input type="textarea" id="frenteFlashcard" class="form-control" placeholder="Frente do flashcard" aria-label="frenteFlashcard" aria-describedby="basic-addon1" required>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">📃</span>
+                            <input type="textarea" id="fundoFlashcard" class="form-control" placeholder="Fundo do flashcard" aria-label="fundoFlashcard" aria-describedby="basic-addon1" required>
+                        </div>
+
+                        <select class="form-select selectCategory" id="selectCategory">
+                        </select>
+
+                        <div id="divCriarPilha"></div>
+
+                        <button class="btn btn-primary" id="btnCriar" type="button">Criar</button>
+
+                        <input type="hidden" id="criarCategoria" value="0">
+                    </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal Ver Flashcard-->
+    <div class="modal fade" id="modalVerFlashcard" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalVerLabel">Seu Flashcard</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="corpoModalVer">
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
