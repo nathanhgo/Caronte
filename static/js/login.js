@@ -22,5 +22,12 @@ login.addEventListener('click', ()=>{
             localStorage.setItem("user_logado", JSON.stringify(usuario));
             window.location.href = '../perfil.html';
         }
+        else{
+            let aviso = document.querySelector("#aviso")
+            aviso.innerHTML = `
+            <div class="alert alert-danger" role="alert">
+            Esse usuário não existe!
+            </div>`
+        }
     }
 })

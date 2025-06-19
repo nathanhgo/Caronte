@@ -7,6 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./static/css/base.css">
     <script src="./static/js/login.js" defer></script>
+    <script src="./static/js/logica_perfil_desligado.js" defer></script>
     <title>Caronte - Login</title>
 </head>
 <body>
@@ -44,6 +45,8 @@
             <div class="input-group mb-3">
                 <input id="senha" type="password" class="form-control" placeholder="Senha" aria-label="Username" aria-describedby="basic-addon1">
             </div>
+            <p id="aviso"></p>
+            <p>Não possui conta? <a href="registrar.html">Clique aqui para se registrar</a></p>
             <button id="login" class="btn btn-primary" type="submit">Entrar</button>
         </div>
     </main>

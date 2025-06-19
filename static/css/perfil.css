@@ -1,0 +1,40 @@
+.flashcardList {
+    list-style: none;
+    padding: 0px;
+}
+
+.flashcardStack {
+    margin-bottom: 1rem;
+    padding: 1rem 0px;
+    border-bottom: 1px solid var(--blue);
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+}
+
+.flashcardStack button {
+    margin-left: 0.5rem;
+}
+
+#suasPilhas {
+    text-align: center;
+    font-size: 32px;
+}
+
+.alert {
+    text-align: center;
+}
+
+.formCriarFlashcard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.formCriarFlashcard button {
+    margin: 1rem 0px;
+}
