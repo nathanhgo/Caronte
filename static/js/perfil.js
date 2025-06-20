@@ -1,4 +1,7 @@
 // const { use } = require("react")
+if(localStorage.getItem("user_logado") == null){
+    window.location.href = './login.html'
+}
 
 function mostrarNome(nome_usuario) {
     let nome = document.querySelector("#nome")

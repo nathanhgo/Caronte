@@ -1,0 +1,44 @@
+main {
+    background-image: url('../img/bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    height: 87.7vh;
+}
+
+h1 {
+    text-align: center;
+    color: var(--white);
+    margin-top: 4rem;
+}
+
+.login {
+    background-color: var(--white);
+    padding: 3rem;
+    margin: 1rem auto;
+    max-width: 500px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login .btn-primary {
+    margin-top: 2rem;
+    background-color: var(--blue);
+    border: 1px solid var(--blue);
+}
+
+.login .btn-primary:hover {
+    background-color: var(--blue2);
+    border: 1px solid var(--blue2);
+}
