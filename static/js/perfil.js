@@ -13,10 +13,23 @@ btnEditarNome.addEventListener('click', ()=>{
     if(JSON.parse(localStorage["user_logado"]).nome == nomeNovo.value)
         {alert("Esse já é seu nome!")}
     else{
-        for (let i = 0; i < localStorage.length; i++) {
+        atualizarDados()
+    }
+
+})
+
+const atualizarDados = () => {
+    let nomeNovo = document.querySelector("#nomeNovo")
+    let novoNomeUser = nomeNovo.value
+    if (nomeNovo.value == '') {
+        novoNomeUser = JSON.parse(localStorage["user_logado"]).nome
+    }
+    
+    for (let i = 0; i < localStorage.length; i++) {
+        if (localStorage.getItem(`user_id${i}`)) {
             if(JSON.parse(localStorage["user_logado"]).nome == JSON.parse(localStorage[`user_id${i}`]).nome){
                 let usuario_novonome = {
-                    nome: nomeNovo.value,
+                    nome: novoNomeUser,
                     senha: JSON.parse(localStorage.getItem("user_logado")).senha,
                     flashcards: JSON.parse(localStorage.getItem("user_logado")).flashcards
                 }
@@ -28,7 +41,8 @@ btnEditarNome.addEventListener('click', ()=>{
             }
         }
     }
-    })
+}
+
 
 let btnExcluir = document.querySelector("#btnExcluir")
 btnExcluir.addEventListener('click', ()=>{
@@ -71,9 +85,12 @@ const mostrarStacks = () => {
     if (listaCategorias.length > 0) {
            for (const ct of listaCategorias) {
             flashcardList.innerHTML += `
-                <li class="flashcardStack">${ct.toLowerCase()}
-                <button class="btn btn-primary btnAbrir" onclick="abrirStack('${ct}', 0)" data-bs-toggle="modal" data-bs-target="#modalVerFlashcard">Abrir pilha</button>
-                <button class="btn btn-danger btnExcluir" onclick="excluirStack('${ct}')">Exluir pilha</button>
+                <li class="flashcardStack">
+                <div>${ct.toLowerCase()}</div>
+                <div>
+                    <button class="btn btn-primary btnAbrir" onclick="abrirStack('${ct}', 0)" data-bs-toggle="modal" data-bs-target="#modalVerFlashcard">Abrir pilha</button>
+                    <button class="btn btn-danger btnExcluir" onclick="excluirStack('${ct}')">Excluir pilha</button>
+                </div>
                 </li>
             `
         } 
@@ -104,6 +121,7 @@ const excluirStack = (stack) => {
     localStorage.setItem('user_logado', userLogadoString)
 
     mostrarStacks()
+    atualizarDados()
 }
 
 const atualizarModalCriar = () => {
@@ -128,12 +146,20 @@ const atualizarModalCriar = () => {
     selectCategory.innerHTML += `<option id='optNovapilha' value="novaPilha">Nova Pilha</option>`
 }
 
-
-selectCategory.addEventListener('change', () => {
+const criarDivCriarCategoria = () => {
     const divCriarPilha = document.querySelector('#divCriarPilha')
     const criarCategoria = document.querySelector('#criarCategoria')
+    const inputGroupCriarPilha = document.querySelector('#inputGroupCriarPilha')
 
-    if (selectCategory.value === 'novaPilha') {
+    try {
+        divCriarPilha.removeChild(inputGroupCriarPilha)
+        criarCategoria.value = '0'
+    } catch(error) {
+        //
+    }
+
+    if (selectCategory.value === 'novaPilha' || JSON.parse(localStorage.getItem('user_logado')).flashcards.length == 0) {
+        
         criarCategoria.value = '1'
 
         divCriarPilha.innerHTML += `
@@ -143,12 +169,11 @@ selectCategory.addEventListener('change', () => {
             </div>
         `
     } else {
-        const inputGroupCriarPilha = document.querySelector('#inputGroupCriarPilha')
         divCriarPilha.removeChild(inputGroupCriarPilha)
 
         criarCategoria.value = '0'
     }
-})
+}
 
 
 const btnCriar = document.querySelector('#btnCriar')
@@ -184,18 +209,38 @@ btnCriar.addEventListener('click', () => {
 
         const usuarioAtualizadoString = JSON.stringify(userLogado);
         localStorage.setItem('user_logado', usuarioAtualizadoString);
+
+        try{
+            const inputGroupCriarPilha = document.querySelector('#inputGroupCriarPilha')
+            const divCriarPilha = document.querySelector('#divCriarPilha')
+            const criarCategoria = document.querySelector('#criarCategoria')
+
+            divCriarPilha.removeChild(inputGroupCriarPilha)
+            criarCategoria.value = '0'
+        } catch(error) {
+            //
+        }
+
     }
 
     frenteFlashcard.value = ''
     fundoFlashcard.value = ''
+    
     atualizarModalCriar()
     mostrarStacks()
+    atualizarDados()
 })
 
 
 btnCriarFlashcard = document.querySelector("#btnCriarFlashcard")
+
 btnCriarFlashcard.addEventListener('click', () => {
     atualizarModalCriar()
+
+    if (JSON.parse(localStorage.getItem('user_logado')).flashcards.length == 0) {
+
+        criarDivCriarCategoria()
+    }
 })
 
 const abrirStack = (stack, count) => {
@@ -223,6 +268,7 @@ const abrirStack = (stack, count) => {
     `
 }
 
+
 const mostrarResposta = (resposta, count, stack) => {
     count += 1
     corpoModalVer.innerHTML = `
@@ -231,4 +277,12 @@ const mostrarResposta = (resposta, count, stack) => {
         <button class="btn btn-primary" onclick="abrirStack('${stack}', ${count})">Próximo</button>
     `
 }
+
+const modalCriar = document.getElementById('modalCriarFlashcard');
+
+
 mostrarStacks()
+
+selectCategory.addEventListener('change', () => {
+    criarDivCriarCategoria()
+})

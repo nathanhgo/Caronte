@@ -28,7 +28,8 @@ header {
     height: 7vh;
     width: 100%;
     background-color: var(--blue);
-    position: sticky;
+    position: fixed;
+    z-index: 10;
 }
 
 footer {

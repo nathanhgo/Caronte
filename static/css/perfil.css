@@ -18,6 +18,8 @@ main {
     
     min-height: 50vh;
     color: var(--white);
+
+    padding-top: 7vh;
 }
 
 main .container{
@@ -40,7 +42,7 @@ main .container > * {
 
 section {
     padding: 2rem 0px;
-    min-height: 30.8vh;
+    min-height: 37.8vh;
 }
 
 #suasPilhas {
@@ -83,6 +85,10 @@ section {
 .flashcardStack {
     text-transform: capitalize;
     font-weight: 700;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 

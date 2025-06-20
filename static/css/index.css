@@ -6,13 +6,13 @@ main {
 
     width: 100%;
     color: white;
-    padding-top: 5rem;
+    padding-top: 7vh;
 }
 
 main h1 {
+    margin-top: 1rem;
     font-size: 4em;
     text-align: center;
-    margin-bottom: 2rem;
 }
 
 .main_menu {
@@ -29,7 +29,7 @@ main h1 {
     width: 20rem;
 }
 
-#menuBtn:hover {
+#menuBtn1:hover, #menuBtn2:hover, #menuBtn3:hover, #menuBtn4:hover {
     background-color: var(--blue2);
     border: 1px solid var(--blue2);
 }
