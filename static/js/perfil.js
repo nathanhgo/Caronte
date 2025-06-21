@@ -76,12 +76,16 @@ const mostrarStacks = () => {
     let flashcardList = document.querySelector('.flashcardList')
     let flashcards = JSON.parse(localStorage.getItem('user_logado')).flashcards
     let listaCategorias = []
+    let numFlashcard = {}
 
     flashcardList.innerHTML = ''
 
     for (const fc of flashcards) {
         if (listaCategorias.indexOf(fc.categoria) == -1) {
             listaCategorias.push(fc.categoria)
+            numFlashcard[`${fc.categoria}`] = 1
+        } else {
+            numFlashcard[`${fc.categoria}`] += 1
         }
     }
 
@@ -89,7 +93,7 @@ const mostrarStacks = () => {
            for (const ct of listaCategorias) {
             flashcardList.innerHTML += `
                 <li class="flashcardStack">
-                <div>${ct.toLowerCase()}</div>
+                <div>${ct.toLowerCase()} <strong>(${numFlashcard[ct]} flashcard)</strong></div>
                 <div>
                     <button class="btn btn-primary btnAbrir" onclick="abrirStack('${ct}', 0)" data-bs-toggle="modal" data-bs-target="#modalVerFlashcard">Abrir pilha</button>
                     <button class="btn btn-danger btnExcluir" onclick="excluirStack('${ct}')">Excluir pilha</button>
@@ -246,6 +250,7 @@ btnCriarFlashcard.addEventListener('click', () => {
     }
 })
 
+
 const abrirStack = (stack, count) => {
     const userLogado = JSON.parse(localStorage.getItem('user_logado'));
     const todosFlashcards = userLogado.flashcards
@@ -267,7 +272,12 @@ const abrirStack = (stack, count) => {
     corpoModalVer.innerHTML = `
         <h3>Frente do cartão</h3>
         <p>${flashcardsStack[count].pergunta}</p>
-        <button class="btn btn-primary" onclick="mostrarResposta('${flashcardsStack[count].resposta}', ${count}, '${stack}')">Ver Resposta</button>
+        <div>
+            <button type="button" onclick="modalEditarFlashcard(${count}, '${flashcardsStack[count].categoria}')" id="btnEditarlashcard" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modalEditarFlashcard">
+                Editar Flashcard
+            </button>
+            <button class="btn btn-primary" onclick="mostrarResposta('${flashcardsStack[count].resposta}', ${count}, '${stack}')">Ver Resposta</button>
+        </div>
     `
 }
 
@@ -277,12 +287,53 @@ const mostrarResposta = (resposta, count, stack) => {
     corpoModalVer.innerHTML = `
         <h3>Frente do cartão</h3>
         <p>${resposta}</p>
-        <button class="btn btn-primary" onclick="abrirStack('${stack}', ${count})">Próximo</button>
+        <div>
+            <button type="button" onclick="modalEditarFlashcard(${count-1}, '${stack}')" id="btnEditarlashcard" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modalEditarFlashcard">
+                Editar Flashcard
+            </button>
+            <button class="btn btn-primary" onclick="abrirStack('${stack}', ${count})">Próximo</button>
+        </div>
     `
 }
 
-const modalCriar = document.getElementById('modalCriarFlashcard');
+const modalEditarFlashcard = (count, stack) => {
+    const userLogado = JSON.parse(localStorage.getItem('user_logado'));
+    const todosFlashcards = userLogado.flashcards
 
+    const flashcardsStack = []
+
+    for (const fc of todosFlashcards) {
+        if (fc.categoria == stack) {
+            flashcardsStack.push(fc)
+        }
+    }
+
+    const novaFrenteFC = document.querySelector('#novaFrenteFC')
+    const novoFundoFC = document.querySelector('#novoFundoFC')
+
+    novaFrenteFC.value = flashcardsStack[count].pergunta
+    novoFundoFC.value = flashcardsStack[count].resposta
+
+    const perguntaAntiga = flashcardsStack[count].pergunta
+    const respostaAntiga = flashcardsStack[count].resposta
+
+    const btnEditar = document.querySelector('#btnEditar')
+    btnEditar.addEventListener('click', () => {
+        for (fc of userLogado.flashcards) {
+            if (fc.pergunta == perguntaAntiga && fc.resposta == respostaAntiga && fc.categoria == stack) {
+                fc.pergunta = novaFrenteFC.value
+                fc.resposta = novoFundoFC.value
+            }
+        }
+
+        localStorage.setItem("user_logado", JSON.stringify(userLogado))
+        atualizarDados()
+
+        novoFundoFC.value = ''
+        novaFrenteFC.value = ''
+    })
+
+}
 
 mostrarStacks()
 

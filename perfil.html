@@ -89,12 +89,12 @@
                     <form class="formCriarFlashcard">
 
                         <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1">📃</span>
+                            <span class="input-group-text" id="basic-addon1">❓</span>
                             <input type="textarea" id="frenteFlashcard" class="form-control" placeholder="Frente do flashcard" aria-label="frenteFlashcard" aria-describedby="basic-addon1" required>
                         </div>
 
                         <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1">📃</span>
+                            <span class="input-group-text" id="basic-addon1">❗</span>
                             <input type="textarea" id="fundoFlashcard" class="form-control" placeholder="Fundo do flashcard" aria-label="fundoFlashcard" aria-describedby="basic-addon1" required>
                         </div>
 
@@ -123,6 +123,34 @@
             <div class="modal-body" id="corpoModalVer">
                 
             </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal CEditar Flashcard -->
+    <div class="modal fade" id="modalEditarFlashcard" tabindex="-1" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Editar flashcard</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="corpoModalEditar">
+                        <form class="formEditarFlashcard">
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">❓</span>
+                                <input type="textarea"  id="novaFrenteFC" class="form-control" placeholder="Frente do flashcard" aria-label="frenteFlashcard" aria-describedby="basic-addon1" required>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">❗</span>
+                                <input type="textarea" id="novoFundoFC"  class="form-control" placeholder="Fundo do flashcard" aria-label="fundoFlashcard" aria-describedby="basic-addon1" required>
+                            </div>
+
+                            <button id="btnEditar" class="btn btn-primary" type="button">Editar</button>
+                        </form>
+                </div>
             </div>
         </div>
     </div>
