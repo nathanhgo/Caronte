@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caronte - POO</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./static/css/base.css">
+    <link rel="stylesheet" href="./static/css/conteudo_poo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container" style="height: 100%;">
+            <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html">&lt;Caronte&gt;</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./index.html#nossosArtigos">Conteúdos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="perfil.html">Meu Perfil</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pagina-calculo">
+        <div class="container">
+            <h1>Herança</h1>
+            <p>
+            No artigo anterior, vimos alguns princípios fundamentais da POO. Neste artigo aprofundaremos em um desses, a <strong>Herança</strong>, vendo os principais conceitos e alguns exemplos.
+            </p>
+
+            <p>
+            A Herança possibilita que as classes compartilhem seus atributos, métodos e outros membros da classe entre si. Para a ligação entre as classes, a herança adota um relacionamento esquematizado hierarquicamente.
+            </p>
+
+            <h2>Classe Base e Classe Derivada</h2>
+            <div class="topics-list">
+                <p>Na Herança temos dois tipos principais de classe:</p>
+            <div class="topic">
+                <strong>Classe Base:</strong> A classe que concede as características a uma outra classe.
+            </div>
+            <div class="topic">
+                <strong>Classe Derivada:</strong> A classe que herda as características da classe base.
+            </div>
+            <div class="topic">
+                <p>(Também podem ser chamadas de Classe Mãe e Classe Filha, ou Superclasse e Subclasse.)</p>
+            </div>
+                <p>O fato de as classes derivadas herdarem atributos das classes bases assegura que programas orientados a objetos cresçam de forma linear e não geometricamente em complexidade. Cada nova classe derivada não possui interações imprevisíveis em relação ao restante do código do sistema.</p>
+                <p>Com o <strong>uso da herança</strong>, uma classe derivada geralmente é uma implementação especifica de um caso mais geral. A classe derivada deve apenas definir as características que a tornam única.</p>
+                <p>Por exemplo: uma classe base que serviria como um modelo genérico pode ser a classe Pessoa com os campos Nome e Idade. Já uma classe derivada poderia ser Funcionário com os campos Nome e Idade herdados da classe Pessoa, acrescido do campo Cargo.</p>
+                <p>De maneira natural, as pessoas visualizam o mundo sendo formado de objetos relacionados entre si hierarquicamente.</p>
+                <p>Mais um exemplo: vamos analisar a relação entre animais, mamíferos e cachorros. Os animais, sob uma descrição abstrata, apresentam atributos, tais como tamanho, inteligência e estrutura óssea. Apresentam também aspectos comportamentais como mover-se, dormir, comer, respirar, etc. Esses atributos e aspectos comportamentais definem a classe dos animais.</p>
+                <p>Analisando os mamíferos, que são filhos da classe animais, veremos atributos detalhados e específicos a ele, como por exemplo, tipo de dente, pelos e glândulas mamárias.</p>
+                <p>Assim, podemos afirmar que os mamíferos são classificados como uma classe derivada dos animais, que por sua vez, são uma classe base dos mamíferos.</p>
+                <p>Pela chamada hierárquica de classes, a classe derivada mamíferos recebe todos os atributos de animais, partindo do princípio que uma classe derivada recebe por <strong>herança</strong> todos os atributos de seus ancestrais.</p>
+            </div>
+
+            <div class="curiosidades">
+            <h2>Exemplo de Herança em Python:</h2>
+            <img src="static/img/exemplo-poo-herança.png" alt="Imagem de um exemplo de Herança em Python">
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                <a href="https://github.com/nathanhgo" target="_blank">@nathanhgo</a>
+                <a href="https://github.com/iamthewalrusz" target="_blank">@iamthewalrus</a>
+                <a href="https://github.com/comeraperuibe944" target="_blank">@comeraperuibe994</a>
+                <a href="https://github.com/PichuFV" target="_blank">@PichuFV</a>
+            </p>
+            <h3>&lt;/caronte&gt;</h3>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
