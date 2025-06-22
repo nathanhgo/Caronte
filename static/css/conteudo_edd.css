@@ -1,4 +1,4 @@
-:root {
+        :root {
         --cor-fundo: #f3f6fb;
         --cor-container: #fdf6ee;
         --cor-h1: #1353a4;
@@ -17,7 +17,7 @@
 
         main .container {
             background: var(--cor-container);
-            max-width: 1080px;
+            max-width: 720px;
             margin: 40px auto;
             padding: 2em;
             border-radius: 14px;
@@ -42,6 +42,13 @@
             font-weight: bold;
         }
 
+        main h3 {
+            color: var(--cor-h2);
+            margin-top: 1em;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
         main p {
             margin-bottom: 1em;
             line-height: 1.6;
@@ -58,7 +65,13 @@
         }
 
         main .topic {
-            margin-bottom: 0.6em;
+            margin-bottom: 2rem;
+
+            text-align: justify;
+        }
+
+        main .subtopic {
+            margin-left: 2rem;
         }
 
         main .curiosidades {
