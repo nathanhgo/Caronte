@@ -63,7 +63,7 @@ btnExcluir.addEventListener('click', ()=>{
 let btnDeslogar = document.querySelector("#btnDeslogar")
 btnDeslogar.addEventListener('click', ()=>{
     localStorage.removeItem("user_logado")
-    window.location.href = '../index.html'
+    window.location.href = './index.html'
 })
 
 // const novosFlashcards = [

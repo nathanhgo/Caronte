@@ -21,7 +21,7 @@ login.addEventListener('click', ()=>{
             usuario_de_vdd = localStorage.getItem(localStorage.key(i))
             usuario.flashcards = JSON.parse(localStorage.getItem(localStorage.key(i))).flashcards
             localStorage.setItem("user_logado", JSON.stringify(usuario));
-            window.location.href = '../perfil.html';
+            window.location.href = './perfil.html';
             usuarioEncontrado = true;
         }
     }

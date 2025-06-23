@@ -1,4 +1,5 @@
 let cadastrar = document.querySelector("#cadastrar")
+let usuarioEncontrado = false
 
 cadastrar.addEventListener('click', ()=>{
     let nome = document.querySelector("#nome")
@@ -13,11 +14,16 @@ cadastrar.addEventListener('click', ()=>{
     // Verificando se existe um usuário com mesmo nome
     for (let i = 0; i < localStorage.length; i++) {
         if(JSON.parse(localStorage.getItem(localStorage.key(i))).nome == usuario.nome){
-            alert("Já existe um usuário com esse mesmo nome!")
-            window.location.reload(true)
+            usuarioEncontrado = true
         }
     }
 
-    localStorage.setItem(`user_id${localStorage.length}`, JSON.stringify(usuario));
-    window.location.href = '../login.html';
+    if (usuarioEncontrado){
+        alert("Já existe um usuário com esse mesmo nome!")
+        window.location.reload(true)
+    }
+    else {
+        localStorage.setItem(`user_id${localStorage.length}`, JSON.stringify(usuario))
+        window.location.href = './login.html'
+    }
 })
