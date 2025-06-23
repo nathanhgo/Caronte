@@ -3,8 +3,8 @@
         --cor-container: #fdf6ee;
         --cor-h1: #1353a4;
         --cor-h2: #15548c;
-        --cor-curiosidade: #eaf3fc;
-        --cor-borda-curiosidade: #1353a4;
+        --cor-imagem: #eaf3fc;
+        --cor-borda-imagem: #1353a4;
         --fonte: 'Segoe UI';
         }
 
@@ -61,15 +61,15 @@
             margin-bottom: 0.6em;
         }
 
-        main .curiosidades {
-            background: var(--cor-curiosidade);
-            border-left: 5px solid var(--cor-borda-curiosidade);
+        main .imagem {
+            background: var(--cor-imagem);
+            border-left: 5px solid var(--cor-borda-imagem);
             padding: 1em;
             margin: 2em 0 1.5em 0;
             border-radius: 10px;
         }
 
-        main .curiosidades h2 {
+        main .imagem h2 {
             color: #1b4967;
             margin-top: 0;
         }

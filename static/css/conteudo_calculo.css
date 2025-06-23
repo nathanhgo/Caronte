@@ -1,78 +1,99 @@
-/* * {
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-} */
-
-body {
-    --blue: #1C2370;
-    --blue2: #111647;
-    --white: #D9D9D9;
-    --black: #111;
-    --purple: #1C23706E;
-
-    font-family: 'Segoe UI';
+:root {
+  --cor-fundo: #f3f6fb;
+  --cor-container: #fdf6ee;
+  --cor-h1: #1353a4;
+  --cor-h2: #15548c;
+  --cor-curiosidade: #eaf3fc;
+  --cor-borda-curiosidade: #1353a4;
+  --fonte: 'Segoe UI';
 }
 
-#navbar {
-    padding: 0px;
-    height: 100%;
+main body {
+  background: var(--cor-fundo);
+  font-family: var(--fonte);
+  margin: 0;
+  padding: 0;
 }
 
-#navbar .container-fluid {
-    background-color: var(--blue);
+main .container {
+    background: var(--cor-container);
+    max-width: 720px;
+    margin: 40px auto;
+    padding: 2em;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px #0002;
+    color: black;
+    font-family: var(--fonte);
 }
 
-
-header {
-    height: 7vh;
-    width: 100%;
-    background-color: var(--blue);
-    position: sticky;
+main h1 {
+    color: var(--cor-h1);
+    border-bottom: 2px solid var(--cor-h1);
+    margin-bottom: 1em;
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 0;
 }
 
-footer {
-    background-color: var(--white);
-    color: var(--blue);
-    padding-top: 1em;
-    
+main h2 {
+    color: var(--cor-h2);
+    margin-top: 2em;
+    font-size: 1.3em;
+    font-weight: bold;
 }
 
-footer .container {
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
+main p {
+    margin-bottom: 1em;
+    line-height: 1.6;
 }
 
-footer p {
-    font-size: 16px;
-    margin: 1rem 0px 0.5rem;
-
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
+main ul, .topics-list {
+  margin: 1em 0 1em 1.4em;
+  padding: 0;
 }
 
-footer a {
-    color: var(--blue);
-    font-weight: 300;
+main li {
+    margin-bottom: 0.5em;
+    line-height: 1.7;
 }
 
-footer h3 {
-    margin: 0.5rem 0px;
-    font-size: 24px;
+main .topic {
+    margin-bottom: 0.6em;
 }
 
-@media (min-width: 768px) {
-    footer p {
-        flex-direction: row;
-        justify-content: space-between;
-    }
+main .curiosidades {
+    background: var(--cor-curiosidade);
+    border-left: 5px solid var(--cor-borda-curiosidade);
+    padding: 1em;
+    margin: 2em 0 1.5em 0;
+    border-radius: 10px;
+}
+
+main .curiosidades h2 {
+    color: #1b4967;
+    margin-top: 0;
+}
+
+main .resumo {
+  background: #fff3cd;
+  border-left: 5px solid #e7b800;
+  padding: 1em;
+  margin: 2em 0 1.5em 0;
+  border-radius: 10px;
+}
+
+main .resumo strong {
+  font-weight: bold;
+}
+
+@media (max-width: 620px) {
+  main .container {
+    padding: 1em;
+  }
+  main .resumo, main .curiosidades {
+    padding: 1em 0.7em;
+  }
+  main h1 {
+    font-size: 1.3em;
+  }
 }

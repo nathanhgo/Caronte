@@ -1,4 +1,5 @@
 let login = document.querySelector("#login")
+let usuarioEncontrado = false;
 
 login.addEventListener('click', ()=>{
     let nome = document.querySelector("#nome")
@@ -21,13 +22,15 @@ login.addEventListener('click', ()=>{
             usuario.flashcards = JSON.parse(localStorage.getItem(localStorage.key(i))).flashcards
             localStorage.setItem("user_logado", JSON.stringify(usuario));
             window.location.href = '../perfil.html';
+            usuarioEncontrado = true;
         }
-        else{
-            let aviso = document.querySelector("#aviso")
-            aviso.innerHTML = `
-            <div class="alert alert-danger" role="alert">
-            Esse usuário não existe!
-            </div>`
-        }
+    }
+
+    if (!usuarioEncontrado) {
+        let aviso = document.querySelector("#aviso")
+        aviso.innerHTML = `
+        <div class="alert alert-danger" role="alert">
+        Esse usuário não existe!
+        </div>`
     }
 })

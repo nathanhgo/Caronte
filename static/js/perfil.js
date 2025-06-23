@@ -60,6 +60,12 @@ btnExcluir.addEventListener('click', ()=>{
         }
 })
 
+let btnDeslogar = document.querySelector("#btnDeslogar")
+btnDeslogar.addEventListener('click', ()=>{
+    localStorage.removeItem("user_logado")
+    window.location.href = '../index.html'
+})
+
 // const novosFlashcards = [
 //     { pergunta: "Qual a capital do Brasil?", resposta: "Brasília", categoria: "GEOGRAFIA" },
 //     { pergunta: "Qual a fórmula da água?", resposta: "H2O", categoria: "CIÊNCIAS" },
