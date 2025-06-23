@@ -1,4 +1,3 @@
-// const { use } = require("react")
 if(localStorage.getItem("user_logado") == null){
     window.location.href = './login.html'
 }
@@ -46,7 +45,6 @@ const atualizarDados = () => {
     }
 }
 
-
 let btnExcluir = document.querySelector("#btnExcluir")
 btnExcluir.addEventListener('click', ()=>{
     for (let i = 0; i < localStorage.length; i++) {
@@ -55,7 +53,7 @@ btnExcluir.addEventListener('click', ()=>{
                 localStorage.removeItem("user_logado")
                 localStorage.removeItem(`user_id${i}`)
 
-                window.location.href = '../index.html'
+                window.location.href = './index.html'
             }
         }
 })
@@ -65,18 +63,6 @@ btnDeslogar.addEventListener('click', ()=>{
     localStorage.removeItem("user_logado")
     window.location.href = './index.html'
 })
-
-// const novosFlashcards = [
-//     { pergunta: "Qual a capital do Brasil?", resposta: "Brasília", categoria: "GEOGRAFIA" },
-//     { pergunta: "Qual a fórmula da água?", resposta: "H2O", categoria: "CIÊNCIAS" },
-//     { pergunta: "Quem descobriu o Brasil?", resposta: "Pedro Álvares Cabral", categoria: "HISTÓRIA" },
-//     { pergunta: "Leru liru", resposta: "liru leru", categoria: "HISTÓRIA" }
-// ];
-
-// const userLogado = JSON.parse(localStorage.getItem('user_logado'));
-// userLogado.flashcards = novosFlashcards;
-// const usuarioAtualizadoString = JSON.stringify(userLogado);
-// localStorage.setItem('user_logado', usuarioAtualizadoString);
 
 const mostrarStacks = () => {
     let flashcardList = document.querySelector('.flashcardList')
@@ -116,7 +102,6 @@ const mostrarStacks = () => {
 
 
 }
-
 
 const excluirStack = (stack) => {
     const userLogado = JSON.parse(localStorage.getItem('user_logado'));

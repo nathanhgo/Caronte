@@ -86,6 +86,23 @@ main .resumo strong {
   font-weight: bold;
 }
 
+.grafico-centro {
+    text-align: center;
+}
+
+.grafico-img {
+    max-width: 98%;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px #0001;
+}
+
+.grafico-legenda {
+    text-align: center;
+    font-size: 1em;
+    color: #444;
+    margin-top: .7em;
+}
+
 @media (max-width: 620px) {
   main .container {
     padding: 1em;
